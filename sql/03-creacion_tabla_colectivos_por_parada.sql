@@ -7,7 +7,8 @@ select
 	sentido,
 	recorrido,
 	st_linemerge(geom) as geom
-from lineasnac_polyline ;
+from lineasnac_polyline 
+where ST_GeometryType(st_linemerge(geom)) ilike '%st_l%';
 
 -- creo la tabla de colectivos_por_parada 
 
